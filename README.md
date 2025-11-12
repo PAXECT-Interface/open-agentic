@@ -9,6 +9,7 @@ Fail-closed orchestration • Tamper-evident audit chains • Zero-trust verific
 
 [![License: Apache-2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](LICENSE)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-brightgreen)]()
+[![CI](https://github.com/<org>/open-agentic/actions/workflows/ci.yml/badge.svg)](https://github.com/<org>/open-agentic/actions/workflows/ci.yml)
 
 ---
 
