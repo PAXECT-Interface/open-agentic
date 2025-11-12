@@ -185,24 +185,8 @@ Key tests:
 
 ---
 
-## Contributing
 
-Contributions are welcome: plugins, adapters, tests, and documentation.
-Please ensure all changes pass the test suite and keep the tamper-evident guarantees intact.
 
-```bash
-pytest -q -vv
-```
-
----
-
-## License
-
-MIT © 2025 PAXECT — Open Agentic Project
-Free for academic, research, and commercial use, provided audit integrity is preserved.
-
----
----
 
 ## Contributing
 
@@ -239,4 +223,4 @@ Contributors reserve all other rights not expressly granted under the applicable
 
 *Looking to extend or embed Open Agentic in production? See the “Security & Audit” section for guidance on HMAC key management, fsync policies, and chain validation.*
 
-
+2025 PAXECT — Open Agentic Project
