@@ -202,5 +202,41 @@ MIT © 2025 PAXECT — Open Agentic Project
 Free for academic, research, and commercial use, provided audit integrity is preserved.
 
 ---
+---
+
+## Contributing
+
+Interested in contributing? See **[CONTRIBUTING.md](CONTRIBUTING.md)** for guidelines on how to get started.
+We welcome contributions of all kinds: bug fixes, new features, tests, examples, and documentation improvements.
+
+- Open an issue for proposals and bugs: **[GitHub Issues](https://github.com/<org>/open-agentic/issues)**
+- Join the discussion: **[GitHub Discussions](https://github.com/<org>/open-agentic/discussions)**
+- Real-time chat (community-run): **[Discord](https://discord.gg/<invite-code>)**
+- News & updates: **[Project blog](https://open-agentic.org/blog)** or **[Announcements](https://github.com/<org>/open-agentic/discussions/categories/announcements)**
+
+## FAQ
+
+Have questions? Check the **[FAQ](FAQ.md)** for answers to common topics (auditing, HMAC keys, plugin manifests, evidence thresholds).
+If you can’t find what you’re looking for, feel free to open a discussion or reach out on Discord.
+
+## Legal Notices
+
+Unless otherwise noted:
+
+- **Code** in this repository is licensed under the **Apache License, Version 2.0**. See **[LICENSE](LICENSE)**.
+- **Documentation** (README, guides, FAQs) is also provided under **Apache-2.0**, unless a file header states a different license.
+
+**Trademarks.**  
+“Open Agentic” and any associated logos are names used by the community project. The licenses for this project do **not** grant rights to use project names, logos, or trademarks. Please follow applicable trademark guidelines of the respective owners. If you want to reference the project, use plain text attribution and link to the repo.
+
+**Privacy.**  
+This open-source project does not collect personal data by default. If you deploy services (e.g., web endpoints, telemetry, error reporting), review and provide your own privacy notice and comply with applicable laws and policies.
+
+**Reservation of Rights.**  
+Contributors reserve all other rights not expressly granted under the applicable licenses.
+
+---
+
+*Looking to extend or embed Open Agentic in production? See the “Security & Audit” section for guidance on HMAC key management, fsync policies, and chain validation.*
 
 
