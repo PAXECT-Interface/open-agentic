@@ -3,16 +3,17 @@
 ---
 
 # Open Agentic — Agentic 2.0 Framework
+[![License: Apache-2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](LICENSE)
+[![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-brightgreen)]()
+[![CI](https://github.com/PAXECT-Interface/open-agentic/actions/workflows/ci.yml/badge.svg)](https://github.com/PAXECT-Interface/open-agentic/actions/workflows/ci.yml)
+![Release](https://img.shields.io/github/v/release/PAXECT-Interface/open-agentic)
 
 Open Agentic 2.0 — v0.1.0 (Public Preview) — Nov 12, 2025
 
 **Open, verifiable, and safe** — a lightweight foundation for auditable AI agents.
 Fail-closed orchestration • Tamper-evident audit chains • Zero-trust verification
 
-[![License: Apache-2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](LICENSE)
-[![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-brightgreen)]()
-[![CI](https://github.com/PAXECT-Interface/open-agentic/actions/workflows/ci.yml/badge.svg)](https://github.com/PAXECT-Interface/open-agentic/actions/workflows/ci.yml)
-![Release](https://img.shields.io/github/v/release/PAXECT-Interface/open-agentic)
+
 
 <!-- Optional later:
 [![PyPI](https://img.shields.io/pypi/v/open-agentic.svg)](https://pypi.org/project/open-agentic/)
