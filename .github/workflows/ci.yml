@@ -9,7 +9,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with: { python-version: "3.12" }
-      - name: Install deps (optional PyYAML)
+      - name: Install deps
         run: |
           python -m pip install --upgrade pip
           pip install pyyaml pytest
@@ -17,11 +17,11 @@ jobs:
         run: python -m pytest -q -vv
       - name: List key IDs (informational)
         run: python tools/list_key_ids.py || true
-      - name: Upload audit artifacts
+      - name: Upload audits
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: audits-and-bundles
+          name: audits-and-report
           path: |
             audit_*.jsonl
             bundle_*.json
