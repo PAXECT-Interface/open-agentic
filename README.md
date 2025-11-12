@@ -11,21 +11,31 @@ Fail-closed orchestration • Tamper-evident audit chains • Zero-trust verific
 [![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-brightgreen)]()
 [![CI](https://github.com/PAXECT-Interface/open-agentic/actions/workflows/ci.yml/badge.svg)](https://github.com/PAXECT-Interface/open-agentic/actions/workflows/ci.yml)
 
-
-
-> Replace `<org>` above with your GitHub user/org once the repo is live.
+<!-- Optional later:
+[![PyPI](https://img.shields.io/pypi/v/open-agentic.svg)](https://pypi.org/project/open-agentic/)
+-->
 
 ---
 
 ## Overview
 
-Open Agentic 2.0 is a compact framework for verifiable agent execution.
-Every action is recorded in an append-only cryptographic audit chain (SHA-256 or HMAC), making each run tamper-evident, reproducible, and auditable.
+Open Agentic 2.0 is a compact framework for **verifiable agent execution**.
+Every action is recorded in an append-only **cryptographic audit chain** (SHA-256 or HMAC), making each run **tamper-evident, reproducible, and auditable**.
 
 ### Motivation
 
 Modern AI apps suffer from instability, corruption, and hallucinations.
-Open Agentic introduces a verifiable kernel where each step is evidence-based, policy-constrained, and logged for post-hoc review.
+Open Agentic introduces a **verifiable kernel** where each step is evidence-based, policy-constrained, and logged for post-hoc review.
+
+---
+
+## Why Open Agentic?
+
+* **Audit-first:** every step is cryptographically chained and fsync’d for tamper evidence.
+* **Fail-closed by design:** if evidence or shape checks fail, the orchestrator abstains.
+* **Zero-trust boundaries:** legacy code via subprocess, remote agents via HTTP—always isolated and time-boxed.
+* **Minimal surface area:** pure stdlib (PyYAML optional), simple manifests, predictable CLI.
+* **Production-friendly:** deterministic bundles (hashes for code/policy/plan), easy key management, complete pytest suite.
 
 ---
 
@@ -42,37 +52,24 @@ Open Agentic introduces a verifiable kernel where each step is evidence-based, p
 
 ---
 
-## Comparison to AutoGen
+## Getting Started
 
-| Aspect          | **Open Agentic 2.0**                                      | **Microsoft AutoGen**                      |
-| --------------- | --------------------------------------------------------- | ------------------------------------------ |
-| Audit Chain     | Cryptographic chain (SHA-256 or HMAC), fsync per event    | Logging only; no cryptographic chaining    |
-| Fail-Closed     | Orchestrator abstains/blocks on uncertainty               | Agents continue unless explicitly coded    |
-| Policy Engine   | Allowlist + per-tool budgets + max steps/time (YAML/JSON) | No built-in policy layer                   |
-| Verifier        | Evidence required; min_coverage/min_sources; shape checks | No built-in verifier                       |
-| Isolation       | Subprocess/HTTP plugins with strict timeouts              | In-process agents; optional external tools |
-| Dependencies    | Python stdlib (+ optional PyYAML)                         | OpenAI/Azure SDKs; optional MCP/npm        |
-| Reproducibility | Optional `bundle_<trace>.json` with hashes                | Not a core feature                         |
-| License         | Apache-2.0                                                | MIT                                        |
-
----
-
-## Installation
+1. **Clone & enter**
 
 ```bash
-git clone https://github.com/<org>/open-agentic.git
+git clone https://github.com/PAXECT-Interface/open-agentic.git
 cd open-agentic
-python3 -m venv .venv
-. .venv/bin/activate
-# stdlib-only; PyYAML is optional if you load YAML configs
-pip install pyyaml  # optional
 ```
 
----
+2. **Create venv & (optionally) install PyYAML**
 
-## Quick Start
+```bash
+python3 -m venv .venv
+. .venv/bin/activate
+pip install pyyaml  # optional, only if you use YAML configs
+```
 
-Run a demo plan:
+3. **Run the demo plan**
 
 ```bash
 python agentic2_micro_plugin.py --plan plan.json --policy policy.yaml --bundle
@@ -85,7 +82,17 @@ pytest -q tests/test_audit_chain_all.py -vv
 python tools/list_key_ids.py
 ```
 
-Example report:
+---
+
+## Quick Start
+
+Run the standard demo:
+
+```bash
+python agentic2_micro_plugin.py --plan plan.json --policy policy.yaml --bundle
+```
+
+Example audit report:
 
 ```
 === Audit Chain Report ===
@@ -99,12 +106,12 @@ Run a single tool directly from Python to verify everything is wired:
 ```bash
 python - <<'PY'
 from agentic2_micro_plugin import TOOLS
-out = TOOLS["echo"]({"msg":"Hello, Open Agentic 2.0!"})
+out = TOOLS["echo"]({"msg": "Hello, Open Agentic 2.0!"})
 print(out)
 PY
 ```
 
-Expected output (shape may vary slightly):
+Expected output (shape may vary):
 
 ```python
 {'ok': True,
@@ -112,6 +119,23 @@ Expected output (shape may vary slightly):
  'evidence': {'coverage': 0.8, 'sources': ['echo', 'caller']},
  'reasons': []}
 ```
+
+---
+
+## Comparison to AutoGen
+
+| Aspect          | **Open Agentic 2.0**                                      | **Microsoft AutoGen**                      |
+| --------------- | --------------------------------------------------------- | ------------------------------------------ |
+| Audit Chain     | Cryptographic chain (SHA-256 or HMAC), fsync per event    | Logging only; no cryptographic chaining    |
+| Fail-Closed     | Orchestrator abstains/blocks on uncertainty               | Agents continue unless explicitly coded    |
+| Policy Engine   | Allowlist + per-tool budgets + max steps/time (YAML/JSON) | No built-in policy layer                   |
+| Verifier        | Evidence required; min_coverage/min_sources; shape checks | No built-in verifier                       |
+| Isolation       | Subprocess/HTTP plugins with strict timeouts              | In-process agents; optional external tools |
+| Dependencies    | Python stdlib (+ optional PyYAML)                         | OpenAI/Azure SDKs; optional MCP/npm        |
+| Reproducibility | Optional `bundle_<trace>.json` with hashes                | Not a core feature                         |
+| License         | Apache-2.0                                                | MIT                                        |
+
+> Reference: **[microsoft/autogen](https://github.com/microsoft/autogen)**
 
 ---
 
@@ -156,16 +180,16 @@ open-agentic/
 * **Zero-trust boundaries**: plugins are isolated via subprocess or HTTP.
 * **Deterministic bundles**: optional `bundle_<trace>.json` with plan/policy/code hashes for reproducibility.
 
-> Security notes:
->
-> * Never commit real HMAC keys. The `keys/` directory should be git-ignored.
-> * Prefer ephemeral keys for local testing; distribute production keys out-of-band.
+**Security notes**
+
+* Never commit real HMAC keys. The `keys/` directory should be git-ignored.
+* Prefer ephemeral keys for local testing; distribute production keys out-of-band.
 
 ---
 
 ## CLI Reference (micro)
 
-```
+```bash
 python agentic2_micro_plugin.py \
   --plan plan.json \
   --policy policy.yaml \
@@ -211,42 +235,35 @@ Key tests:
 
 ---
 
-## Example Audit Event (truncated)
+## Demos & Screenshots
 
-```json
-{
-  "ts": 1762886368.792943,
-  "trace": "34997dfe-594e-4112-a7b8-5290c80a1d6e",
-  "type": "success",
-  "details": {
-    "task": "meta",
-    "result": "{\"extracted\":\"dummy content from https://example.org/doc\"}",
-    "evidence": {"coverage": 0.85, "sources": ["meta_stub", "crawler"]}
-  },
-  "prev": "…",
-  "key_id": "b16de09ae524",
-  "chain": "55af0c3fde94379f3d6a3f530c96ee76…"
-}
-```
+* **Asciinema demo (coming soon)** — visualize a run and the resulting audit chain.
+* **Screenshots (coming soon)** — quick overview of audit reports and CI status.
+
+---
+
+## Changelog
+
+See **[CHANGELOG.md](CHANGELOG.md)** for what’s new in v2.0 and subsequent releases.
 
 ---
 
 ## Contributing
 
-Interested in contributing? See **[CONTRIBUTING.md](CONTRIBUTING.md)** for guidelines on how to get started.
+Interested in contributing? See **[CONTRIBUTING.md](CONTRIBUTING.md)** for guidelines.
 We welcome contributions of all kinds: bug fixes, new features, tests, examples, and documentation improvements.
 
-* Open an issue for proposals and bugs: **[GitHub Issues](https://github.com/<org>/open-agentic/issues)**
-* Join the discussion: **[GitHub Discussions](https://github.com/<org>/open-agentic/discussions)**
-* Real-time chat (community-run): **[Discord](https://discord.gg/<invite-code>)**
-* News & updates: **[Project blog](https://open-agentic.org/blog)** or **[Announcements](https://github.com/<org>/open-agentic/discussions/categories/announcements)**
+* Issues: **[GitHub Issues](https://github.com/PAXECT-Interface/open-agentic/issues)**
+* Discussions: **[GitHub Discussions](https://github.com/PAXECT-Interface/open-agentic/discussions)**
+* Community chat: **Discord (coming soon)**
+* News & updates: **Project blog (coming soon)**
 
 ---
 
 ## FAQ
 
 Have questions? Check the **[FAQ](FAQ.md)** for answers to common topics (auditing, HMAC keys, plugin manifests, evidence thresholds).
-If you don’t find what you’re looking for, feel free to open a discussion or reach out on Discord.
+If you don’t find what you’re looking for, feel free to open a discussion.
 
 ---
 
@@ -257,22 +274,17 @@ Unless otherwise noted:
 * **Code** in this repository is licensed under the **Apache License, Version 2.0**. See **[LICENSE](LICENSE)**.
 * **Documentation** (README, guides, FAQs) is also provided under **Apache-2.0**, unless a file header states a different license.
 
-**Trademarks.**
-“Open Agentic” and any associated logos are names used by the community project. The licenses for this project do **not** grant rights to use project names, logos, or trademarks. Please follow applicable trademark guidelines of the respective owners. If you want to reference the project, use plain text attribution and link to the repo.
+**Trademarks.** “Open Agentic” and any associated logos are names used by the community project. The licenses for this project do **not** grant rights to use project names, logos, or trademarks. Please follow applicable trademark guidelines of the respective owners. If you want to reference the project, use plain text attribution and link to the repo.
 
-**Privacy.**
-This open-source project does not collect personal data by default. If you deploy services (e.g., web endpoints, telemetry, error reporting), provide your own privacy notice and comply with applicable laws and policies.
+**Privacy.** This open-source project does not collect personal data by default. If you deploy services (e.g., web endpoints, telemetry, error reporting), provide your own privacy notice and comply with applicable laws and policies.
 
-**Reservation of Rights.**
-Contributors reserve all other rights not expressly granted under the applicable licenses.
+**Reservation of Rights.** Contributors reserve all other rights not expressly granted under the applicable licenses.
 
 ---
 
 *Looking to extend or embed Open Agentic in production? See the “Security & Audit” section for guidance on HMAC key management, fsync policies, and chain validation.*
 
 2025 PAXECT — Open Agentic Project
-
----
 
 
 
