@@ -1,8 +1,10 @@
-Open Agentic 2.0 — v0.1.0 (Public Preview) — Nov 12, 2025
+
 
 ---
 
 # Open Agentic — Agentic 2.0 Framework
+
+Open Agentic 2.0 — v0.1.0 (Public Preview) — Nov 12, 2025
 
 **Open, verifiable, and safe** — a lightweight foundation for auditable AI agents.
 Fail-closed orchestration • Tamper-evident audit chains • Zero-trust verification
