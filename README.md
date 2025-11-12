@@ -1,8 +1,9 @@
 
 
-
+---
 
 # Open Agentic — Agentic 2.0 Framework
+
 [![License: Apache-2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](LICENSE)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-brightgreen)]()
 [![CI](https://github.com/PAXECT-Interface/open-agentic/actions/workflows/ci.yml/badge.svg)](https://github.com/PAXECT-Interface/open-agentic/actions/workflows/ci.yml)
@@ -10,15 +11,8 @@
 
 Open Agentic 2.0 — v0.1.0 (Public Preview) — Nov 12, 2025
 
----
 **Open, verifiable, and safe** — a lightweight foundation for auditable AI agents.
 Fail-closed orchestration • Tamper-evident audit chains • Zero-trust verification
-
-
-
-<!-- Optional later:
-[![PyPI](https://img.shields.io/pypi/v/open-agentic.svg)](https://pypi.org/project/open-agentic/)
--->
 
 ---
 
@@ -40,7 +34,7 @@ Open Agentic introduces a **verifiable kernel** where each step is evidence-base
 * **Fail-closed by design:** if evidence or shape checks fail, the orchestrator abstains.
 * **Zero-trust boundaries:** legacy code via subprocess, remote agents via HTTP—always isolated and time-boxed.
 * **Minimal surface area:** pure stdlib (PyYAML optional), simple manifests, predictable CLI.
-* **Production-friendly:** deterministic bundles (hashes for code/policy/plan), easy key management, complete pytest suite.
+* **Production-friendly:** deterministic bundles (hashes for code/policy/plan), simple key management, full pytest suite.
 
 ---
 
@@ -106,7 +100,7 @@ ok: 4, broken: 0, skipped_no_key: 23
 
 ### Minimal Echo Demo
 
-Run a single tool directly from Python to verify everything is wired:
+Run a single tool directly from Python:
 
 ```bash
 python - <<'PY'
@@ -140,7 +134,7 @@ Expected output (shape may vary):
 | Reproducibility | Optional `bundle_<trace>.json` with hashes                | Not a core feature                         |
 | License         | Apache-2.0                                                | MIT                                        |
 
-> Reference: **[microsoft/autogen](https://github.com/microsoft/autogen)**
+Reference: **[microsoft/autogen](https://github.com/microsoft/autogen)**
 
 ---
 
@@ -180,10 +174,10 @@ open-agentic/
 
 ## Security Model
 
-* **Fail-closed by default**: no output passes without verified evidence.
-* **Tamper-evident logging**: each event is chained to the previous and flushed to disk.
-* **Zero-trust boundaries**: plugins are isolated via subprocess or HTTP.
-* **Deterministic bundles**: optional `bundle_<trace>.json` with plan/policy/code hashes for reproducibility.
+* **Fail-closed by default:** no output passes without verified evidence.
+* **Tamper-evident logging:** each event is chained to the previous and flushed to disk.
+* **Zero-trust boundaries:** plugins are isolated via subprocess or HTTP.
+* **Deterministic bundles:** optional `bundle_<trace>.json` with plan/policy/code hashes for reproducibility.
 
 **Security notes**
 
@@ -255,8 +249,7 @@ See **[CHANGELOG.md](CHANGELOG.md)** for what’s new in v2.0 and subsequent rel
 
 ## Contributing
 
-Interested in contributing? See **[CONTRIBUTING.md](CONTRIBUTING.md)** for guidelines.
-We welcome contributions of all kinds: bug fixes, new features, tests, examples, and documentation improvements.
+See **[CONTRIBUTING.md](CONTRIBUTING.md)** for guidelines. We welcome contributions of all kinds: bug fixes, new features, tests, examples, and documentation improvements.
 
 * Issues: **[GitHub Issues](https://github.com/PAXECT-Interface/open-agentic/issues)**
 * Discussions: **[GitHub Discussions](https://github.com/PAXECT-Interface/open-agentic/discussions)**
@@ -267,8 +260,7 @@ We welcome contributions of all kinds: bug fixes, new features, tests, examples,
 
 ## FAQ
 
-Have questions? Check the **[FAQ](FAQ.md)** for answers to common topics (auditing, HMAC keys, plugin manifests, evidence thresholds).
-If you don’t find what you’re looking for, feel free to open a discussion.
+See **[FAQ](FAQ.md)** for answers to common topics (auditing, HMAC keys, plugin manifests, evidence thresholds). If you don’t find what you’re looking for, open a discussion.
 
 ---
 
@@ -279,7 +271,7 @@ Unless otherwise noted:
 * **Code** in this repository is licensed under the **Apache License, Version 2.0**. See **[LICENSE](LICENSE)**.
 * **Documentation** (README, guides, FAQs) is also provided under **Apache-2.0**, unless a file header states a different license.
 
-**Trademarks.** “Open Agentic” and any associated logos are names used by the community project. The licenses for this project do **not** grant rights to use project names, logos, or trademarks. Please follow applicable trademark guidelines of the respective owners. If you want to reference the project, use plain text attribution and link to the repo.
+**Trademarks.** “Open Agentic” and any associated logos are names used by the community project. The licenses for this project do **not** grant rights to use project names, logos, or trademarks. Please follow applicable trademark guidelines of the respective owners. If you reference the project, use plain text attribution and link to the repo.
 
 **Privacy.** This open-source project does not collect personal data by default. If you deploy services (e.g., web endpoints, telemetry, error reporting), provide your own privacy notice and comply with applicable laws and policies.
 
@@ -290,6 +282,10 @@ Unless otherwise noted:
 *Looking to extend or embed Open Agentic in production? See the “Security & Audit” section for guidance on HMAC key management, fsync policies, and chain validation.*
 
 2025 PAXECT — Open Agentic Project
+
+---
+
+
 
 
 
