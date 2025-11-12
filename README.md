@@ -37,6 +37,22 @@ Open Agentic introduces a verifiable kernel where each step is evidence-based, p
 
 ---
 
+## Comparison to AutoGen
+
+| Aspect              | **Open Agentic 2.0**                                           | **Microsoft AutoGen**                            |
+|---------------------|-----------------------------------------------------------------|--------------------------------------------------|
+| Audit Chain         | Cryptographic chain (SHA-256 or HMAC), fsync per event         | Logging only; no cryptographic chaining          |
+| Fail-Closed         | Orchestrator abstains/blocks on uncertainty                    | Agents generally continue unless explicitly coded|
+| Policy Engine       | Allowlist + per-tool budgets + max steps/time (YAML/JSON)      | No built-in policy layer                         |
+| Verifier            | Evidence required; min_coverage/min_sources; shape checks      | No built-in verifier                             |
+| Isolation           | Subprocess/HTTP plugins with strict timeouts                   | In-process agents, optional external tools       |
+| Dependencies        | Python stdlib (+ optional PyYAML)                              | OpenAI/Azure SDKs; optional MCP/npm              |
+| Reproducibility     | Optional `bundle_<trace>.json` with hashes                     | Not a core feature                               |
+| License             | Apache-2.0                                                     | MIT                                              |
+
+
+
+
 ## Installation
 
 ```bash
