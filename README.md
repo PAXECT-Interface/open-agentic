@@ -1,6 +1,6 @@
 
 
----
+
 
 # Open Agentic — Agentic 2.0 Framework
 [![License: Apache-2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](LICENSE)
@@ -10,6 +10,7 @@
 
 Open Agentic 2.0 — v0.1.0 (Public Preview) — Nov 12, 2025
 
+---
 **Open, verifiable, and safe** — a lightweight foundation for auditable AI agents.
 Fail-closed orchestration • Tamper-evident audit chains • Zero-trust verification
 
