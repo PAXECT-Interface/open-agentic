@@ -1,4 +1,4 @@
-
+Open Agentic 2.0 — v0.1.0 (Public Preview) — Nov 12, 2025
 
 ---
 
