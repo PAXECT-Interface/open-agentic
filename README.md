@@ -1,4 +1,4 @@
-Hier is je **volledig herschreven README**—compact, internationaal, en met de twee extra’s die onboarding supermakkelijk maken: een **Mini Echo Demo** en een **CI-badge** (placeholder). Je kunt dit in één keer over je huidige README plakken.
+
 
 ---
 
@@ -272,5 +272,5 @@ Contributors reserve all other rights not expressly granted under the applicable
 
 ---
 
-Wil je dat ik meteen ook **CONTRIBUTING.md** en **FAQ.md** aanlever in dezelfde stijl?
+
 
