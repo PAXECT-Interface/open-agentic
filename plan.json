@@ -1,0 +1,22 @@
+[
+  {
+    "task": "legacy",
+    "args": {
+      "op": "echo",
+      "msg": "Hello from legacy subprocess"
+    }
+  },
+  {
+    "task": "meta",
+    "args": {
+      "op": "echo",
+      "msg": "Hello from meta HTTP stub"
+    }
+  },
+  {
+    "task": "summarize",
+    "args": {
+      "text": "This is a tiny demo plan that exercises both plugins and the local summarize tool."
+    }
+  }
+]
