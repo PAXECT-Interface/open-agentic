@@ -58,29 +58,9 @@ Open Agentic introduces a **verifiable kernel** where each step is evidence-base
 ```bash
 git clone https://github.com/PAXECT-Interface/open-agentic.git
 cd open-agentic
-```
+````
 
-2. **Create venv & (optionally) install PyYAML**
-
-```bash
-python3 -m venv .venv
-. .venv/bin/activate
-pip install pyyaml  # optional, only if you use YAML configs
-```
----
-## Environment & Supported Platforms
-
-Open Agentic 2.0 targets **Python 3.10+** on:
-
-- Linux
-- macOS
-- Windows (PowerShell or cmd)
-
-The core only relies on the standard library plus a few small dependencies in `requirements.txt`.
-
-### Creating a virtual environment
-
-From the project root:
+2. **Create a virtual environment**
 
 ```bash
 python -m venv .venv    # on some systems: python3 -m venv .venv
@@ -88,25 +68,50 @@ python -m venv .venv    # on some systems: python3 -m venv .venv
 # Activate the virtual environment
 # Linux/macOS:
 source .venv/bin/activate
-# Windows:
+# Windows (PowerShell/cmd):
 .venv\Scripts\activate
+```
 
-# Install dependencies and run the full test suite
+3. **Install dependencies**
+
+Minimal setup (only YAML support):
+
+```bash
+pip install pyyaml
+```
+
+Or install all development dependencies:
+
+```bash
 pip install -r requirements.txt
-pytest -q -vv
+```
 
-3. **Run the demo plan**
+4. **Run the demo plan**
 
 ```bash
 python agentic2_micro_plugin.py --plan plan.json --policy policy.yaml --bundle
 ```
 
-Verify audit integrity and list key IDs:
+5. **Verify audit integrity and list key IDs**
 
 ```bash
 pytest -q tests/test_audit_chain_all.py -vv
 python tools/list_key_ids.py
 ```
+
+---
+
+## Environment & Supported Platforms
+
+Open Agentic 2.0 targets **Python 3.10+** on:
+
+* Linux
+* macOS
+* Windows (PowerShell or cmd)
+
+The core uses the Python standard library plus a few small dependencies declared in `requirements.txt`.
+
+````
 
 ---
 
