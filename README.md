@@ -67,6 +67,32 @@ python3 -m venv .venv
 . .venv/bin/activate
 pip install pyyaml  # optional, only if you use YAML configs
 ```
+## Environment & Supported Platforms
+
+Open Agentic 2.0 targets **Python 3.10+** on:
+
+- Linux
+- macOS
+- Windows (PowerShell or cmd)
+
+The core only relies on the standard library plus a few small dependencies in `requirements.txt`.
+
+### Creating a virtual environment
+
+From the project root:
+
+```bash
+python -m venv .venv    # on some systems: python3 -m venv .venv
+
+# Activate the virtual environment
+# Linux/macOS:
+source .venv/bin/activate
+# Windows:
+.venv\Scripts\activate
+
+# Install dependencies and run the full test suite
+pip install -r requirements.txt
+pytest -q -vv
 
 3. **Run the demo plan**
 
