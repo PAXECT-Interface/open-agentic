@@ -39,7 +39,7 @@ Open Agentic introduces a **verifiable kernel** where each step is evidence-base
 * **Minimal surface area:** pure stdlib (PyYAML optional), simple manifests, predictable CLI.
 * **Production-friendly:** deterministic bundles (hashes for code/policy/plan), simple key management, full pytest suite.
 * **Roadmap & community**- Roadmap & community: [GitHub Discussions](https://github.com/PAXECT-Interface/open-agentic/discussions) · [GitHub Issues](https://github.com/PAXECT-Interface/open-agentic/issues) — see these for planned versions and ways to get involved.
- – See the  for planned versions and how to get involved.
+ 
 
 ---
 
