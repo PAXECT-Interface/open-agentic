@@ -111,10 +111,8 @@ Open Agentic 2.0 targets **Python 3.10+** on:
 
 The core uses the Python standard library plus a few small dependencies declared in `requirements.txt`.
 
-````
 
 ---
-
 ## Quick Start
 
 Run the standard demo:
