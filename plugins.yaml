@@ -1,0 +1,16 @@
+# Open Agentic 2.0 — plugin manifest for the micro orchestrator
+
+plugins:
+  - kind: legacy_subprocess
+    name: legacy
+    cmd:
+      - python3
+      - legacy_agentic.py
+    timeout: 8.0
+
+  - kind: meta_http
+    name: meta
+    endpoint: "http://127.0.0.1:8081"
+    timeout: 8.0
+    headers: {}
+    auth_token: null
