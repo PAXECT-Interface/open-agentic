@@ -1,0 +1,18 @@
+# Open Agentic 2.0 — default policy for the micro orchestrator
+
+allowlist:
+  - legacy        # subprocess plugin (legacy_agentic.py)
+  - meta          # HTTP plugin (meta_stub.py)
+  - summarize     # local summarizer tool
+  - echo          # local echo tool (useful for quick tests)
+
+# Hard limits to keep runs bounded and auditable
+max_steps: 16
+max_sec: 10.0
+
+# Per-tool budgets: how many times each tool may run in a single plan
+budgets:
+  legacy: 5
+  meta: 5
+  summarize: 5
+  echo: 10
