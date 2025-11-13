@@ -1,3 +1,6 @@
+<p align="center">
+  <img src="logo-open-agentic.png" alt="Open Agentic 2.0 logo" width="220">
+</p>
 
 
 ---
