@@ -11,6 +11,9 @@
 
 Open Agentic 2.0 — v0.1.0 (Public Preview) — Nov 12, 2025
 
+Open Agentic 2.0 is founded and maintained by **PAXECT** and released under the Apache-2.0 license as a community-driven, audit-first agent framework.
+
+
 **Open, verifiable, and safe** — a lightweight foundation for auditable AI agents.
 Fail-closed orchestration • Tamper-evident audit chains • Zero-trust verification
 
