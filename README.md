@@ -40,7 +40,7 @@ Open Agentic introduces a **verifiable kernel** where each step is evidence-base
 * **Production-friendly:** deterministic bundles (hashes for code/policy/plan), simple key management, full pytest suite.
 
 ---
- **Roadmap & community** – See the  for planned versions and how to get involved.
+ **Roadmap & community** **[GitHub Discussions](https://github.com/PAXECT-Interface/open-agentic/discussions)**– See the  for planned versions and how to get involved.
 
 ## Core Features
 
