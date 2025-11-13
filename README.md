@@ -58,7 +58,7 @@ Open Agentic introduces a **verifiable kernel** where each step is evidence-base
 ```bash
 git clone https://github.com/PAXECT-Interface/open-agentic.git
 cd open-agentic
-````
+```
 
 2. **Create a virtual environment**
 
