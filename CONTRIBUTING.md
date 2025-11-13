@@ -120,7 +120,7 @@ When filing an issue, include:
 * **Steps to reproduce** (minimal plan/policy/plugins, if possible)
 * **Expected vs actual behavior**
 * **Logs** or **audit excerpts** (scrub secrets; do not share real keys)
-
+---
 ### Community & contributors
 
 Open Agentic 2.0 is intentionally open and community-driven.
@@ -136,6 +136,7 @@ If you’re interested in becoming a regular contributor or maintainer, start a
 Discussion and introduce yourself – the goal is for Open Agentic 2.0 to grow
 with a healthy, transparent community around it.
 
+---
 
 ## License
 
