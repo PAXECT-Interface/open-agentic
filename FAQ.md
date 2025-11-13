@@ -155,6 +155,6 @@ Bug reports, documentation improvements, and small focused features are all welc
 
 If you build something cool on top of Open Agentic, please consider sharing it there so others can learn from it.
 
-```
+
 
 
