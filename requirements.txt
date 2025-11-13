@@ -1,0 +1,5 @@
+# Minimal dependencies for Open Agentic 2.0
+# The core uses only the Python 3.10+ standard library.
+
+pyyaml>=6.0
+pytest>=8.0
