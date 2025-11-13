@@ -1,6 +1,4 @@
-<p align="center">
-  <img src="logo-open-agentic.png" alt="ChatGPT Image 13 nov 2025, 10_50_22.png" width="220">
-</p>
+
 
 
 ---
