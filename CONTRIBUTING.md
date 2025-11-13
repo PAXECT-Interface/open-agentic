@@ -121,6 +121,22 @@ When filing an issue, include:
 * **Expected vs actual behavior**
 * **Logs** or **audit excerpts** (scrub secrets; do not share real keys)
 
+### Community & contributors
+
+Open Agentic 2.0 is intentionally open and community-driven.
+
+If you’d like to help:
+
+- open an issue or discussion with ideas or questions,
+- pick up an issue labeled `good first issue` or `help wanted`,
+- improve docs, examples, or tests,
+- or try the framework in your own projects and share feedback.
+
+If you’re interested in becoming a regular contributor or maintainer, start a
+Discussion and introduce yourself – the goal is for Open Agentic 2.0 to grow
+with a healthy, transparent community around it.
+
+
 ## License
 
 By contributing, you agree your contributions are licensed under the project’s **Apache License, Version 2.0** (see `LICENSE`).
