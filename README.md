@@ -38,7 +38,7 @@ Open Agentic introduces a **verifiable kernel** where each step is evidence-base
 * **Zero-trust boundaries:** legacy code via subprocess, remote agents via HTTP—always isolated and time-boxed.
 * **Minimal surface area:** pure stdlib (PyYAML optional), simple manifests, predictable CLI.
 * **Production-friendly:** deterministic bundles (hashes for code/policy/plan), simple key management, full pytest suite.
-* **Roadmap & community** **[GitHub Discussions](https://github.com/PAXECT-Interface/open-agentic/discussions)**– See the  for planned versions and how to get involved.
+* **Roadmap & community** **[GitHub Discussions](https://github.com/PAXECT-Interface/open-agentic/discussions)** **[GitHub Issues](https://github.com/PAXECT-Interface/open-agentic/issues)**– See the  for planned versions and how to get involved.
 * **[GitHub Issues](https://github.com/PAXECT-Interface/open-agentic/issues)**
 ---
 
