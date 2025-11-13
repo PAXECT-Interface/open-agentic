@@ -67,6 +67,7 @@ python3 -m venv .venv
 . .venv/bin/activate
 pip install pyyaml  # optional, only if you use YAML configs
 ```
+---
 ## Environment & Supported Platforms
 
 Open Agentic 2.0 targets **Python 3.10+** on:
