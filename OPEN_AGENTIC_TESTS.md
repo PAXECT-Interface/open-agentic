@@ -1,3 +1,6 @@
+<p align="center">
+  <img src="ChatGPT Image 13 nov 2025, 10_50_22.png" alt="Open Agentic 2.0 logo" width="220">
+</p>
 
 # Open Agentic 2.0 – Test Playbook
 
