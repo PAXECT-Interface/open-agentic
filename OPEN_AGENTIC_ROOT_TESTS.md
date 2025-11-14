@@ -298,7 +298,6 @@ Planned future scenario:
 
 This section is reserved for a future swarm test once the design and implementation are finalized.
 
-```
 
 
 
