@@ -11,14 +11,9 @@
 [![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-brightgreen)]()
 [![CI](https://github.com/PAXECT-Interface/open-agentic/actions/workflows/ci.yml/badge.svg)](https://github.com/PAXECT-Interface/open-agentic/actions/workflows/ci.yml)
 ![Release](https://img.shields.io/github/v/release/PAXECT-Interface/open-agentic)
-
-[![Status](https://img.shields.io/badge/status-public_preview-orange)]()
-[![Platforms](https://img.shields.io/badge/platform-linux%20%7C%20macOS%20%7C%20windows-lightgrey)]()
 [![Governance Layer](https://img.shields.io/badge/role-agentic_governance_layer-0059b3)]()
 
-[![Stars](https://img.shields.io/github/stars/PAXECT-Interface/open-agentic?style=flat)](https://github.com/PAXECT-Interface/open-agentic/stargazers)
-[![Issues](https://img.shields.io/github/issues/PAXECT-Interface/open-agentic)](https://github.com/PAXECT-Interface/open-agentic/issues)
-[![Last commit](https://img.shields.io/github/last-commit/PAXECT-Interface/open-agentic)](https://github.com/PAXECT-Interface/open-agentic/commits/main)
+
 
 
 
