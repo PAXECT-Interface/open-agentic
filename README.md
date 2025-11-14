@@ -1,22 +1,4 @@
-Hele stack staat strak:
-– volledige pytest suite groen ✅
-– losse audit-chain test groen ✅
-– `maintain_audits.py` bevestigt dat alle audit-chains OK zijn ✅
 
-Dat betekent: je repo is intern consistent, en we kunnen nu veilig een **definitieve README** neerleggen die klopt met je bestanden én je nieuwe Test Playbook.
-
-Hier is een **final README** in het Engels, met:
-
-* plug-&-play laag / governance layer
-* duidelijke vermelding van `OPEN_AGENTIC_TESTS.md`
-* uitleg hoe dit samenwerkt met AutoGen / andere agent frameworks
-* correcte repo-structuur
-
-Je kunt dit 1:1 in `README.md` plakken.
-
----
-
-````markdown
 <p align="center">
   <img src="ChatGPT Image 13 nov 2025, 10_50_22.png" alt="Open Agentic 2.0 logo" width="220">
 </p>
