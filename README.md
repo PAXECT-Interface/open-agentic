@@ -19,7 +19,7 @@
 [![Stars](https://img.shields.io/github/stars/PAXECT-Interface/open-agentic?style=flat)](https://github.com/PAXECT-Interface/open-agentic/stargazers)
 [![Issues](https://img.shields.io/github/issues/PAXECT-Interface/open-agentic)](https://github.com/PAXECT-Interface/open-agentic/issues)
 [![Last commit](https://img.shields.io/github/last-commit/PAXECT-Interface/open-agentic)](https://github.com/PAXECT-Interface/open-agentic/commits/main)
-[![Lines of code](https://img.shields.io/tokei/lines/github/PAXECT-Interface/open-agentic)]()
+
 
 
 Open Agentic 2.0 — v0.1.0 (Public Preview) — Nov 12, 2025
