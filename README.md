@@ -463,7 +463,11 @@ Unless otherwise noted:
 *Looking to use Open Agentic as the safety/audit kernel under a larger agent platform?
 Start with the demo plan, read `OPEN_AGENTIC_TESTS.md`, then wrap your existing agents as tools under a single policy and audit chain.*
 
+---
+##  Support
 
+For validation, integration help, or CI assistance:
+📧 **[PAXECT-Team@outlook.com](mailto:PAXECT-Team@outlook.com)**
 
 2025 PAXECT — Open Agentic Project
 
