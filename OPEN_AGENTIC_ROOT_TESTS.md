@@ -29,7 +29,7 @@ Run the full suite:
 cd ~/open-agentic
 source .venv/bin/activate
 pytest -q -vv
-````
+```
 
 Expected outcome (current state):
 
