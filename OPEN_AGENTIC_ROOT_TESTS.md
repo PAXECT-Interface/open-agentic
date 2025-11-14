@@ -1,5 +1,6 @@
 
 
+
 # Open Agentic 2.0 – Test Playbook
 
 This document describes the current test structure and manual test flows for Open Agentic 2.0.
@@ -287,6 +288,10 @@ Planned future scenario:
   * Logs rejected or suspicious steps in the audit chain for later analysis.
 
 This section is reserved for a future swarm test once the design and implementation are finalized.
+
+
+
+
 
 
 
