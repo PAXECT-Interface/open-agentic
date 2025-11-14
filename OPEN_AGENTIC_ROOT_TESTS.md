@@ -416,6 +416,147 @@ Expected:
 * Any corrupted audits have been moved to `audit_corrupted/` with a corresponding `_salvaged` version in the root.
 
 
+## 7. Swarm-style stress scenario (multiple runs)
+
+This scenario simulates a small "swarm" of runs over time, mixing healthy and adversarial
+conditions. It does not introduce new code, but reuses the existing meta stub, evil meta
+and audit maintenance logic.
+
+The goal is to show that:
+
+* Open Agentic 2.0 remains consistent over many runs.
+* Evidence thresholds are enforced (some runs have `done: 3`, some `done: 2`).
+* Audit-chain integrity is maintained, and `maintain_audits.py` can still repair
+  and quarantine corrupted audits if needed.
+
+### 7.1 Batch of healthy runs (`done: 3`)
+
+Terminal 1 – start healthy meta:
+
+```bash
+cd ~/open-agentic
+source .venv/bin/activate
+python meta_stub.py
+# Meta stub listening on http://127.0.0.1:8081
+```
+
+Terminal 2 – run Open Agentic 2.0 multiple times:
+
+```bash
+cd ~/open-agentic
+source .venv/bin/activate
+
+for i in 1 2 3; do
+  echo "Run $i (healthy meta)..."
+  python agentic2_micro_plugin.py \
+    --plan plan.json \
+    --policy policy.yaml \
+    --plugins plugins.yaml \
+    --min_coverage 0.75 \
+    --min_sources 2 \
+    --bundle
+done
+```
+
+Expected:
+
+* Each run prints JSON with `done: 3` and `status: "OK"`.
+* Several new `audit_*.jsonl` and `bundle_*.json` files are created.
+
+### 7.2 Batch of adversarial runs (`done: 2`)
+
+Stop the healthy meta (`Ctrl+C` in Terminal 1), then start the low-evidence meta:
+
+```bash
+cd ~/open-agentic
+source .venv/bin/activate
+python evil_meta_low_evidence.py
+# Evil meta (low evidence) listening on http://127.0.0.1:8081
+```
+
+In Terminal 2, run another batch:
+
+```bash
+cd ~/open-agentic
+source .venv/bin/activate
+
+for i in 1 2 3; do
+  echo "Run $i (evil meta)..."
+  python agentic2_micro_plugin.py \
+    --plan plan.json \
+    --policy policy.yaml \
+    --plugins plugins.yaml \
+    --min_coverage 0.75 \
+    --min_sources 2 \
+    --bundle
+done
+```
+
+Expected:
+
+* Some runs show `done: 2` and `status: "OK"`.
+* The plan in the corresponding `bundle_*.json` still contains three tasks (`legacy`, `meta`, `summarize`), but only two are fully accepted according to the policy/evidence thresholds.
+
+You can inspect the latest bundle:
+
+```bash
+python - <<'PY'
+import json, pathlib
+
+root = pathlib.Path(".")
+bundles = sorted(
+    root.glob("bundle_*.json"),
+    key=lambda p: p.stat().st_mtime,
+    reverse=True,
+)
+if not bundles:
+    raise SystemExit("No bundle_*.json found")
+
+f = bundles[0]
+print("Inspecting bundle:", f)
+data = json.loads(f.read_text())
+print(json.dumps(data, indent=2))
+PY
+```
+
+This shows that the plan is stable, while the effective `done` count depends on whether
+the meta-agent evidence satisfies the thresholds.
+
+### 7.3 Audit-chain validation after swarm runs
+
+After both the healthy and adversarial batches:
+
+```bash
+cd ~/open-agentic
+source .venv/bin/activate
+
+pytest -q tests/test_audit_chain_all.py -vv
+```
+
+Expected:
+
+* If no manual tampering was done, the test should pass.
+* If any audit file was corrupted (for example during separate tamper tests), the test
+  will fail and report which `audit_*.jsonl` has a broken chain.
+
+To repair and quarantine corrupted audits:
+
+```bash
+cd ~/open-agentic
+source .venv/bin/activate
+
+python maintain_audits.py
+pytest -q tests/test_audit_chain_all.py -vv
+```
+
+Expected:
+
+* All `audit_*.jsonl` files in the repository root have valid chains again.
+* Any corrupted audits were moved to `audit_corrupted/` with a corresponding `_salvaged`
+  version remaining in the root.
+
+
+
 
 
 
