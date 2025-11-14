@@ -285,18 +285,136 @@ Developers can inspect the generated `bundle_*.json` to see per-step evidence, c
 
 ---
 
-## 6. Future work – Swarm of adversarial agents
 
-Planned future scenario:
 
-* Multiple legacy / meta / third-party agents in parallel.
-* Some returning weak or manipulated evidence, some failing schema validation.
-* Open Agentic 2.0 acts as a governance/control layer:
+## 6. Mixed healthy / adversarial runs
 
-  * Accepts only steps that satisfy policy and evidence thresholds.
-  * Logs rejected or suspicious steps in the audit chain for later analysis.
+This scenario exercises Open Agentic 2.0 under alternating conditions:
 
-This section is reserved for a future swarm test once the design and implementation are finalized.
+* Healthy meta-agent (strong evidence)
+* Adversarial meta-agent (weak evidence)
+* Audit integrity maintained across runs via `maintain_audits.py`
+
+It shows that the governance layer behaves consistently over time, even when the environment changes.
+
+### 6.1 Run with healthy meta (`done: 3`)
+
+Terminal 1:
+
+```bash
+cd ~/open-agentic
+source .venv/bin/activate
+python meta_stub.py
+# Meta stub listening on http://127.0.0.1:8081
+```
+
+Terminal 2:
+
+```bash
+cd ~/open-agentic
+source .venv/bin/activate
+
+python agentic2_micro_plugin.py \
+  --plan plan.json \
+  --policy policy.yaml \
+  --plugins plugins.yaml \
+  --min_coverage 0.75 \
+  --min_sources 2 \
+  --bundle
+```
+
+Expected:
+
+* `done: 3`
+* `status: "OK"`
+* New `audit_*.jsonl` and `bundle_*.json`.
+
+### 6.2 Run with adversarial meta (`done: 2`)
+
+Stop the healthy meta-agent (`Ctrl+C` in Terminal 1) and start the evil meta-agent:
+
+```bash
+cd ~/open-agentic
+source .venv/bin/activate
+python evil_meta_low_evidence.py
+# Evil meta (low evidence) listening on http://127.0.0.1:8081
+```
+
+In Terminal 2, run Open Agentic 2.0 again:
+
+```bash
+cd ~/open-agentic
+source .venv/bin/activate
+
+python agentic2_micro_plugin.py \
+  --plan plan.json \
+  --policy policy.yaml \
+  --plugins plugins.yaml \
+  --min_coverage 0.75 \
+  --min_sources 2 \
+  --bundle
+```
+
+Expected:
+
+* The JSON summary shows `done: 2` and `status: "OK"`.
+* A new `bundle_*.json` is created for this run.
+
+You can inspect the latest bundle:
+
+```bash
+python - <<'PY'
+import json, pathlib
+
+root = pathlib.Path(".")
+bundles = sorted(
+    root.glob("bundle_*.json"),
+    key=lambda p: p.stat().st_mtime,
+    reverse=True,
+)
+if not bundles:
+    raise SystemExit("No bundle_*.json found")
+
+f = bundles[0]
+print("Inspecting bundle:", f)
+data = json.loads(f.read_text())
+print(json.dumps(data, indent=2))
+PY
+```
+
+The bundle reflects:
+
+* A plan with three tasks (`legacy`, `meta`, `summarize`).
+* Only two tasks fully counted as `done`, because the meta step does not meet `min_coverage` / `min_sources` and is not trusted as strong evidence.
+
+### 6.3 Audit-chain consistency across runs
+
+After running both the healthy and adversarial scenarios, verify that all audit files are still consistent:
+
+```bash
+cd ~/open-agentic
+source .venv/bin/activate
+
+pytest -q tests/test_audit_chain_all.py -vv
+```
+
+If any audit has been manually or externally tampered, the test will fail.
+
+To repair and quarantine corrupted audits:
+
+```bash
+cd ~/open-agentic
+source .venv/bin/activate
+
+python maintain_audits.py
+pytest -q tests/test_audit_chain_all.py -vv
+```
+
+Expected:
+
+* All `audit_*.jsonl` files in the repository root have valid chains.
+* Any corrupted audits have been moved to `audit_corrupted/` with a corresponding `_salvaged` version in the root.
+
 
 
 
