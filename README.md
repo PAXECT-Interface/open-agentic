@@ -463,16 +463,11 @@ Unless otherwise noted:
 *Looking to use Open Agentic as the safety/audit kernel under a larger agent platform?
 Start with the demo plan, read `OPEN_AGENTIC_TESTS.md`, then wrap your existing agents as tools under a single policy and audit chain.*
 
-```
-
-Je tests zijn groen, de scripts staan in de repo, en deze README sluit daar nu netjes op aan. Hiermee kun je Open Agentic 2.0 serieus neerzetten als governance-laag bovenop AutoGen en andere agent-stacks.
-::contentReference[oaicite:0]{index=0}
-```
 
 
 2025 PAXECT — Open Agentic Project
 
----
+
 
 
 
