@@ -12,6 +12,15 @@ All commands assume:
 - Repository root: `~/open-agentic`
 - Virtualenv active: `source .venv/bin/activate`
 
+### Repository sync
+
+Make sure your local clone is up to date with `main`:
+
+```bash
+cd ~/open-agentic
+git pull origin main
+source .venv/bin/activate
+
 
 ---
 
