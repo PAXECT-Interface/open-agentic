@@ -415,6 +415,7 @@ Expected:
 * All `audit_*.jsonl` files in the repository root have valid chains.
 * Any corrupted audits have been moved to `audit_corrupted/` with a corresponding `_salvaged` version in the root.
 
+---
 
 ## 7. Swarm-style stress scenario (multiple runs)
 
