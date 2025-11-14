@@ -1,6 +1,4 @@
 
-
-
 # Open Agentic 2.0 – Test Playbook
 
 This document describes the current test structure and manual test flows for Open Agentic 2.0.
@@ -12,7 +10,7 @@ All commands assume:
 - Repository root: `~/open-agentic`
 - Virtualenv active: `source .venv/bin/activate`
 
-### Repository sync
+## Repository sync
 
 Make sure your local clone is up to date with `main`:
 
@@ -20,7 +18,9 @@ Make sure your local clone is up to date with `main`:
 cd ~/open-agentic
 git pull origin main
 source .venv/bin/activate
+```
 
+All test commands in this document assume you are on the latest `main` branch.
 
 ---
 
@@ -28,9 +28,9 @@ source .venv/bin/activate
 
 The main automated tests live under `tests/`:
 
-- `tests/test_agentic2.py` – end-to-end tests for Open Agentic 2.0
-- `tests/test_audit_chain_all.py` – audit-chain validation
-- `tests/test_smoke.py` – basic smoke tests for Audit and Orchestrator
+* `tests/test_agentic2.py` – end-to-end tests for Open Agentic 2.0
+* `tests/test_audit_chain_all.py` – audit-chain validation
+* `tests/test_smoke.py` – basic smoke tests for Audit and Orchestrator
 
 Run the full suite:
 
@@ -297,6 +297,11 @@ Planned future scenario:
   * Logs rejected or suspicious steps in the audit chain for later analysis.
 
 This section is reserved for a future swarm test once the design and implementation are finalized.
+
+```
+
+
+
 
 
 
