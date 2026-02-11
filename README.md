@@ -5,7 +5,7 @@
 
 ---
 
-# Open Agentic — Agentic 2.0 Framework
+# PAXECT Open Agentic — Agentic 2.0 Framework
 
 [![License: Apache-2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](LICENSE)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-brightgreen)]()
@@ -17,11 +17,11 @@
 
 
 
-Open Agentic 2.0 — v0.1.0 (Public Preview) — Nov 12, 2025
+PAXECT Open Agentic 2.0 — v0.1.0 (Public Preview) — Nov 12, 2025
 
-Open Agentic 2.0 is founded and maintained by **PAXECT** and released under the Apache-2.0 license as a community-driven, audit-first agent framework.
+PAXECT Open Agentic 2.0 is founded and maintained by **PAXECT** and released under the Apache-2.0 license as a community-driven, audit-first agent framework.
 
-> **Positioning:** Open Agentic is a *thin, pluggable governance layer* for AI agents.  
+> **Positioning:**  PAXECT Open Agentic is a *thin, pluggable governance layer* for AI agents.  
 > You can use it standalone, or put it **in front of existing stacks** (AutoGen, custom “meta agents”, legacy tools) as an evidence-based control layer.
 
 **Open, verifiable, and safe** — a lightweight foundation for auditable AI agents.  
@@ -31,7 +31,7 @@ Fail-closed orchestration • Tamper-evident audit chains • Zero-trust verific
 
 ## Overview
 
-Open Agentic 2.0 is a compact framework for **verifiable agent execution**.
+PAXECT Open Agentic 2.0 is a compact framework for **verifiable agent execution**.
 
 Every action is recorded in an append-only **cryptographic audit chain** (SHA-256 or HMAC), making each run **tamper-evident, reproducible, and auditable**.
 
@@ -51,7 +51,7 @@ Modern AI apps and agent frameworks (including AutoGen-style multi-agent systems
 - No guarantees that data or results haven’t been **tampered with**
 - “Best-effort” behavior instead of **fail-closed** when evidence is weak
 
-Open Agentic focuses on one thing: a **verifiable kernel** that can sit underneath or in front of your agents:
+PAXECT Open Agentic focuses on one thing: a **verifiable kernel** that can sit underneath or in front of your agents:
 
 - Each step is **policy-constrained** (allowlist + budgets)
 - Each result is **evidence-based** (coverage + sources)
@@ -61,7 +61,7 @@ You can keep your existing agents, tools and LLM prompts — Open Agentic become
 
 ---
 
-## Why Open Agentic?
+## Why PAXECT Open Agentic?
 
 - **Audit-first:** every step is cryptographically chained and fsync’d for tamper evidence.
 - **Fail-closed by design:** if evidence or shape checks fail, the orchestrator abstains.
@@ -81,7 +81,7 @@ You can keep your existing agents, tools and LLM prompts — Open Agentic become
 | Policy Engine              | Allowlist, per-tool budgets, max steps, wall-clock time.                                         |
 | Verifier                   | Requires evidence; enforces `min_coverage` / `min_sources`; task-specific output shape checks.   |
 | Plugins                    | Legacy Subprocess (stdin/stdout JSON) and Meta HTTP (POST JSON) with timeouts and trimmed errors.|
-| Testing & Playbook         | Pytest suite + root-level **Test Playbook** (`OPEN_AGENTIC_TESTS.md`) for reproducible scenarios.|
+| Testing & Playbook         | Pytest suite + root-level **Test Playbook** (`PAXECT OPEN_AGENTIC_TESTS.md`) for reproducible scenarios.|
 
 ---
 
@@ -90,7 +90,7 @@ You can keep your existing agents, tools and LLM prompts — Open Agentic become
 ### 1. Clone & enter
 
 ```bash
-git clone https://github.com/PAXECT-Interface/open-agentic.git
+git clone https://github.com/PAXECT-Interface/ open-agentic.git
 cd open-agentic
 ````
 
@@ -142,7 +142,7 @@ python tools/list_key_ids.py
 
 ## Environment & Supported Platforms
 
-Open Agentic 2.0 targets **Python 3.10+** on:
+PAXECT Open Agentic 2.0 targets **Python 3.10+** on:
 
 * Linux
 * macOS
@@ -174,7 +174,7 @@ Run a single tool directly from Python:
 ```bash
 python - <<'PY'
 from agentic2_micro_plugin import TOOLS
-out = TOOLS["echo"]({"msg": "Hello, Open Agentic 2.0!"})
+out = TOOLS["echo"]({"msg": "Hello, PAXECT Open Agentic 2.0!"})
 print(out)
 PY
 ```
@@ -184,7 +184,7 @@ Expected output (shape may vary):
 ```python
 {
   'ok': True,
-  'result': 'Hello, Open Agentic 2.0!',
+  'result': 'Hello, PAXECT Open Agentic 2.0!',
   'evidence': {'coverage': 0.8, 'sources': ['echo', 'caller']},
   'reasons': []
 }
@@ -192,9 +192,9 @@ Expected output (shape may vary):
 
 ---
 
-## Using Open Agentic as a Layer on Top of AutoGen / Meta Agents
+## Using PAXECT Open Agentic as a Layer on Top of AutoGen / Meta Agents
 
-Open Agentic is not a “chatbot framework” by itself.
+PAXECT Open Agentic is not a “chatbot framework” by itself.
 Think of it as a **governance and audit kernel** that you can put around existing agent systems such as:
 
 * Microsoft **AutoGen**
@@ -246,7 +246,7 @@ The same principle applies if you swap in a real AutoGen-based agent instead of 
 
 ## Comparison to AutoGen
 
-Open Agentic is not a competitor to AutoGen — it is a **governance and audit layer** that can sit on top.
+PAXECT Open Agentic is not a competitor to AutoGen — it is a **governance and audit layer** that can sit on top.
 
 | Aspect              | **Open Agentic 2.0**                                             | **Microsoft AutoGen**                   |
 | ------------------- | ---------------------------------------------------------------- | --------------------------------------- |
